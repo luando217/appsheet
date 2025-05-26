@@ -20,6 +20,17 @@ client.once("ready", () => {
 
 client.login(DISCORD_BOT_TOKEN);
 
+// ✅ Route GET cho UptimeRobot check sống
+app.get("/", (req, res) => {
+  res.send("✅ Bot server is running!");
+});
+
+// ✅ Optional thêm ping riêng nếu muốn
+app.get("/ping", (req, res) => {
+  res.send("PONG!");
+});
+
+// ✅ Route webhook chính từ AppSheet
 app.post("/webhook", async (req, res) => {
   console.log("Webhook received:", req.body); // log dữ liệu nhận được
 
